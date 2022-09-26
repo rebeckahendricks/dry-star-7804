@@ -7,7 +7,7 @@ RSpec.describe 'Doctors Show Page' do
         @hospital1 = Hospital.create!(name: "Grey Sloan Memorial Hospital")
         @hospital2 = Hospital.create!(name: "Mercy West Hospital")
 
-        @doctor1 = Doctor.create!(name: "Meredith Grey", specialty: "General Surgery", university: "University of Virgina", hospital_id: @hospital1.id)
+        @doctor1 = Doctor.create!(name: "Meredith Grey", specialty: "General Surgery", university: "University of Virginia", hospital_id: @hospital1.id)
         @doctor2 = Doctor.create!(name: "Miranda Bailey", specialty: "General Surgery", university: "Johns Hopkins University", hospital_id: @hospital1.id)
         @doctor3 = Doctor.create!(name: "Callie Torres", specialty: "Orthopedic Surgery", university: "University of Arizona", hospital_id: @hospital2.id)
 
