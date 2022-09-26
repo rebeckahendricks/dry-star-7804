@@ -7,6 +7,9 @@
 <h4>Patients: </h4>
 <ul>
   <% @doctor.patients.each do |patient| %>
-    <li><%= patient.name %></li>
+    <li id="patient_<%= patient.id %>">
+      <%= patient.name %>
+      <%= button_to "Delete", doctor_path(@doctor), method: :patch, params: {patient_id: patient.id} %>
+    </li>
   <% end %>
 </ul>

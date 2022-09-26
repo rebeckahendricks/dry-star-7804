@@ -68,24 +68,28 @@ RSpec.describe 'Doctors Show Page' do
         it 'I am brought back to the doctors show page and I no longer see that patients name listed' do
           visit doctor_path(@doctor1)
 
-          within "#patient_#{@patient1.id}" do
+          within "#patient_#{@patient3.id}" do
             click_button "Delete"
           end
 
           expect(current_path).to eq(doctor_path(@doctor1))
 
-          expect(page).to_not have_content("Katie Bryce")
-          
+          expect(page).to_not have_content("George O'Malley")
+
+          expect(page).to have_content("Katie Bryce")
           expect(page).to have_content("Bonnie Crasnoff")
-          expect(page).to have_content("George O'Malley")
+
+          within "#patient_#{@patient1.id}" do
+            expect(page).to have_button("Delete")
+          end
 
           within "#patient_#{@patient2.id}" do
             expect(page).to have_button("Delete")
           end
 
-          within "#patient_#{@patient3.id}" do
-            expect(page).to have_button("Delete")
-          end
+          visit doctor_path(@doctor2)
+
+          expect(page).to have_content("George O'Malley")
         end
       end
     end
