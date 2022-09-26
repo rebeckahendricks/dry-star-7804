@@ -73,9 +73,7 @@ RSpec.describe 'Doctors Show Page' do
           end
 
           expect(current_path).to eq(doctor_path(@doctor1))
-
           expect(page).to_not have_content("George O'Malley")
-
           expect(page).to have_content("Katie Bryce")
           expect(page).to have_content("Bonnie Crasnoff")
 

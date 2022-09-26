@@ -10,5 +10,4 @@ class DoctorsController < ApplicationController
     patient_doctor.destroy
     redirect_to doctor_path(@doctor)
   end
-
 end
