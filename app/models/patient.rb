@@ -4,4 +4,12 @@ class Patient < ApplicationRecord
 
   validates :name, presence: true
   validates :age, presence: true
+
+  def self.adult_patients
+    where('age > 18')
+  end
+
+  def self.sort_by_name
+    order(:name)
+  end
 end
