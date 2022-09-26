@@ -8,10 +8,6 @@ class Doctor < ApplicationRecord
   validates :university, presence: true
   validates :hospital_id, presence: true
 
-  def patient_count
-    patients.count
-  end
-
   def self.order_by_patient_count
     joins(:patient_doctors)
     .select("doctors.*, count(patient_doctors) as patient_count")
